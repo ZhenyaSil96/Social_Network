@@ -3,16 +3,25 @@ import classes from './MyPosts.module.css'
 import Post from './Post/Post'
 
 const MyPosts = () => {
+
+  let postsData = [
+    { message: 'Hello , how are you', likesCount: 'Likes = 11' },
+    { message: 'It is my first post', likesCount: 'Likes= 5' }
+  ]
   return (
-    <div>
-      My posts
+    <div className={classes.postsBlock}>
+      <h3>My posts</h3>
       <div>
-        <textarea></textarea>
-        <button>Add</button>
+        <div className={classes.postsTextArea}>
+          <textarea></textarea>
+        </div>
+        <div className={classes.buttonAdd}>
+          <button>Add</button>
+        </div>
       </div>
       <div className={classes.posts}>
-        <Post message='Hello , how are you' col='10' />
-        <Post message="It's my first post" col='5' />
+        <Post message={postsData[0].message} likesCount={postsData[0].likesCount} />
+        <Post message={postsData[1].message} likesCount={postsData[1].likesCount} />
       </div>
     </div>
   )
