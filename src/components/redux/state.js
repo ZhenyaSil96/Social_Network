@@ -1,5 +1,6 @@
+import { rerenderEntireTree } from "../../render"
 
-let state = {
+export let state = {
     profilePage: {
         postsData: [
             { message: 'Hello , how are you', likesCount: 'Likes = 11' },
@@ -25,7 +26,27 @@ let state = {
             { id: 'Ron', name: 'Ron' },
             { id: 'Kara', name: 'Kara' }
         ]
+    },
+    sidebar: {
+        friendsPage: [
+            { name: 'Alex' },
+            { name: 'Tom' },
+            { name: 'Bob' }
+        ]
+
     }
 }
 
-export default state
+
+export let addNewPost = (postMessage) => {
+    let newPost = {
+        message: postMessage,
+        likesCount: 0
+    }
+    state.profilePage.postsData.push(newPost)
+    rerenderEntireTree(state)
+}
+
+export let deletePost = () => {
+
+}

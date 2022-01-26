@@ -1,14 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import state from './components/redux/state'
+import {rerenderEntireTree} from './render'
+import {state} from './components/redux/state';
 
-
-ReactDOM.render(
-  <App state={state}/>, document.getElementById('root1')
-)
-
-
-reportWebVitals();
+rerenderEntireTree(state)
